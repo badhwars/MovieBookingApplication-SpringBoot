@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Secure page</title>
+
+<style>
+
+h1{
+text-align : center;
+color : white;
+}
+h2{
+text-align : center;
+color : #BCA136;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+h3{
+color : #A3B86C;
+font-size : 16pt;
+}
+img{
+float:right;
+margin:10px;
+}
+label{
+margin-left:200px;
+display:inline-block;
+font-size:20px;
+text-align:left;
+width:150px;
+}
+
+</style>
+
+</head>
+<body>
+<form method="post" th:action="@{/deleteMovieEntry}" >
+<h3>Movie:</h3>
+<
+<select id="movieList" name="moviename" required>
+        <option disabled selected value="movie">Movies Running</option>
+        <option th:each="movie : ${movieList}"
+                th:value="${movie.name}"
+                th:text="${movie.name}"></option>
+    </select>
+    
+<input type="submit" value="Delete Movie">
+</form>
+
+
+</div>
+</body>
+</html>

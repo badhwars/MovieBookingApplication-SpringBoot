@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Secure page</title>
+
+<style>
+
+h1{
+text-align : center;
+color : white;
+}
+h2{
+text-align : center;
+color : #BCA136;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+h3{
+color : #A3B86C;
+font-size : 16pt;
+}
+img{
+float:right;
+margin:10px;
+}
+label{
+margin-left:200px;
+display:inline-block;
+font-size:20px;
+text-align:left;
+width:150px;
+}
+
+</style>
+
+</head>
+<body>
+<div>
+<form method="post" th:action="@{/createAdminMovie}" >
+<input type="submit" value="Create Movie">
+</form>
+<form method="post" th:action="@{/deleteMovie}" >
+<input type="submit" value="DeleteMovie">
+</form>
+</div>
+<div>
+User Records
+<h2>Users</h2>
+<table border="1">
+    <tr>
+        <th>name</th>
+       
+    </tr>
+    <tr th:each = "user: ${users}">
+        <td th:text="${user.username}"></td>
+
+    </tr>
+    </table>
+    
+   <h1>Bookings Table</h1>
+<table border="1">
+    <tr>
+        <th>Movie Name</th>
+       <th>Day</th>
+       <th>Time</th>
+    </tr>
+    <tr th:each = "booking: ${bookings}">
+        <td th:text="${booking.movie}"></td>
+		<td th:text="${booking.day}"></td>
+		<td th:text="${booking.time}"></td>
+    </tr>
+    </table>
+</div>
+</body>
+</html>

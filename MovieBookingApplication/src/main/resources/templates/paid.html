@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+h2{
+text-align : center;
+color : #BCA136;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+ margin: 0 auto;
+  padding: 20px;
+      background: #107896;
+}
+
+h4{
+color:white;
+font-family:verdana;
+font-size:18pt;
+text-align:center;
+}
+label{
+color:white;
+}
+
+img{
+float:right;
+margin:10px;
+}
+
+div{
+background-color:black;
+font-color:white;
+text-align:center;
+
+}
+
+</style>
+</head>
+<body>
+<h2> 
+Do you Know? We have 5$ Tuesday Special.<br> </h2>
+<h4>
+Watch All your watchlist with your Special Friend!! <br>
+
+Movies are experienced the best with Coke & Nachos
+
+</h4>
+<div>
+<h1>
+
+<label th:if="${total} != null">Total Amount Due : <label th:text=${total}> </label></label>
+<img src="../static/food.jpg" width="300" height ="100" th:src="@{/cinema.jpg}" style="margin-left:20px;"/>
+ </h1>
+
+
+<a href="/guestCheckOut" th:if="${total} != null" th:href="@{/guestCheckout}"> Guest CheckOut </a> <br>
+<br>
+<br>
+</div>
+<br>
+<img src="../static/pepsi.jpg" width="600" height ="250" th:src="@{/pepsi.jpg}" style="float:center"/>
+<img src="../static/food.jpg" width="600" height ="250" th:src="@{/food.jpg}" style="float:center"/>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+h1{
+text-align : center;
+color : white
+}
+h2{
+text-align : center;
+color : #BCA136
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+h3{
+color : #A3B86C;
+font-size : 16pt;
+}
+input[type=button], input[type=submit]{
+  background-color: white;
+  border: none;
+  color: blue;
+  padding:10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+img{
+float:right;
+margin:10px;
+}
+label{
+margin-left:200px;
+display:inline-block;
+font-size:20px;
+text-align:left;
+width:150px;
+color:white;
+}
+</style>
+</head>
+
+<body>
+<h1>Welcome to CineMovies! </h1><br>
+<h2>Already Have a Account? <a href="/user" th:href="@{/user}">Login Here</a></h2>
+<h2>Admin Login ? <a href="/admin" th:href="@{/admin}">Login Here</a></h2>
+
+<div>
+<h2> Movies Running </h2>
+
+
+<form method="post" th:action="@{/booking}" th:object="${booking}" >
+<h3>Movie:</h3>
+<img src="../static/joker.jpg" width="200" height ="200" th:src="@{/joker.jpg}"/>
+<img src="../static/popcorn.jpg" width="200" height ="200" th:src="@{/popcorn.jpg}"/>
+<select id="movieList" name="movieList" th:field="*{movie}" required>
+        <option disabled selected value="movie">Movies Running</option>
+        <option th:each="movie : ${movieList}"
+                th:value="${movie.name}+' , '+${movie.rating}"
+                th:text="${movie.name}+' : '+${movie.rating}"></option>
+    </select>
+    
+    
+   
+    <br>
+    <h3>Day : </h3>
+    <select  id="day" name="day"  th:field="*{day}" required>
+        <option disabled selected value="day">Select Day</option>
+        <option value="Monday">Monday</option>
+        <option value="Tuesday">Tuesday</option>
+        <option value="Wednesday">Wednesday</option>
+        <option value="Thursday">Thursday</option>
+        <option value="Friday">Friday</option>
+        <option value="Saturday">Saturday</option>
+        <option value="Sunday">Sunday</option>
+    </select>
+    
+    <h3>Time : </h3>
+    <select  id="time" name="time" th:field="*{time}" required>
+        <option disabled selected value="time">Select Time</option>
+        <option value="11 AM">11 AM</option>
+        <option value="2 PM">2 PM</option>
+        <option value="5 PM">5 PM</option>
+        <option value="8 PM">8 PM</option>
+        <option value="11 PM">11 PM</option>
+      
+    </select>
+    <br><br>
+    <input type="submit" value="Book Ticket">
+    
+</form>
+
+
+</div>
+
+
+<label>Create Account</label>
+<form name="form" action="#" th:action="@{/register}" method=post>
+<label> Name: </label><input type="text" name="username" /> <br>
+<label>Password :</label> <input type = "password" name="password" /> <br>
+
+<label><input type = "submit" value="Add User"></label>
+</form>
+
+
+
+</body>
+</html>

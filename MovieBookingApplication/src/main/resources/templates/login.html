@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<style>
+h1{
+text-align : center;
+color : white
+}
+h2{
+text-align : center;
+color : #BCA136
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+h3{
+color : #A3B86C;
+font-size : 16pt;
+}
+img{
+float:right;
+margin:10px;
+}
+label{
+margin-left:200px;
+display:inline-block;
+font-size:20px;
+text-align:left;
+width:150px;
+}
+</style>
+</head>
+<body>
+<h1>
+Welcome to the Login Page <br/>
+</h1>
+<form method="post" th:action="@{/login}">
+	
+	<div th:if="${param.error}">
+		<div style="color:red;">
+		Invalid Username or Pasword
+		</div>
+	
+	</div>
+	
+	<div th:if="${param.logout}">
+		<div style="color:red;">
+		You have been logged out.
+		</div>
+	</div>
+	
+	<div>
+		<label for="username">Username</label>:
+			<input type="text"
+				id="username"
+				name="username"
+				autofocus="autofocus"
+				placeholder="Username">
+	</div>
+	
+	<div>
+		<label for="password">Password</label>:
+			<input type="password"
+				id="password"
+				name="password"
+				placeholder="Password">
+	</div>
+	
+	<div>
+		<input type="submit"
+			name="login-submit"
+			id="login-submit"
+			value="Log In Please">
+	</div>
+	
+</form>
+<p><a href="/" th:href="@{/}">Back to home page</a></p>
+</body>
+</html>

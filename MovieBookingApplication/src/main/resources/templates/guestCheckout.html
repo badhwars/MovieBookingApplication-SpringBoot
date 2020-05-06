@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<style>
+h6{
+text-color:white;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+
+h4{
+color:white;
+font-family:verdana;
+font-size:18pt;
+text-align:center;
+}
+label{
+color:white;
+}
+
+img{
+float:right;
+margin:10px;
+}
+
+div{
+background-color:black;
+font-color:white;
+text-align:center;
+
+}
+h2{
+text-align: center;
+color: #BCA136;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Welcome Guest</h2>
+<h4>
+We just need a few more peices of information to process your ticket!
+
+</h4>
+<div>
+ <form th:action=@{/sendEmail} method="post">
+<label>Name: </label><input type = text placeholder = "Name" name="name"><br><br>
+ 
+<label>Phone: </label> <input type = text placeholder="6479050000" pattern="[649][0-9]{9}" name = "phone">
+ <br><br>
+ <input type = submit>
+ </form>
+
+</div>
+
+</body>
+</html>

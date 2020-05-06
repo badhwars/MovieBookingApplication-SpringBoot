@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Book</title>
+<style>
+h2{
+text-align : center;
+color : #BCA136;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+
+h4{
+color:white;
+}
+label{
+color:white;
+}
+
+img{
+float:right;
+margin:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<div>
+<form method="post" th:action="@{/paid}" th:object="${payment}" >
+
+<h2>Number of Tickets </h2>
+<div>
+<img src="../static/it.jpg" width="200" height ="200" th:src="@{/it.jpg}"/>
+<img src="../static/titanic.jpg" width="200" height ="200" th:src="@{/titanic.jpg}"/>
+<h4>General : </h4>
+<label th:if="${price} != 5" > 15$</label>
+<label th:if="${price} == 5" > 5$</label>
+<input type = number name="generalTickets" min=0 value=0 >
+<br>
+
+<h4>Senior (Over 65) :</h4>
+<label>5$</label>
+ <input type = number name="seniorTickets" min=0 value=0>
+<br>
+<h4 th:if="${rating} != 'adult'">Student (Under 18): </h4>
+<label th:if="${rating} != 'adult'">5$</label> : <input type = number th:if="${rating} != 'adult'"  name="childTickets" min=0 value=0>
+<br>
+<input type="submit">
+</div>
+</form>
+
+<!-- <a href="/user" th:href="@{/user}">Login</a> -->
+</div>
+<img src="../static/pepsi.jpg" width="600" height ="250" th:src="@{/pepsi.jpg}" style="float:center"/>
+<img src="../static/food.jpg" width="600" height ="250" th:src="@{/food.jpg}" style="float:center"/>
+</body>
+</html>

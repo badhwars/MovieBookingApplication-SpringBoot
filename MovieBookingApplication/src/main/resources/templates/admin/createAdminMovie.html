@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Secure page</title>
+
+<style>
+
+h1{
+text-align : center;
+color : white;
+}
+h2{
+text-align : center;
+color : #BCA136;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+        background: #107896;
+}
+h3{
+color : #A3B86C;
+font-size : 16pt;
+}
+img{
+float:right;
+margin:10px;
+}
+label{
+margin-left:200px;
+display:inline-block;
+font-size:20px;
+text-align:left;
+width:150px;
+}
+
+</style>
+
+<body>
+<form method="post" th:action="@{/adminCreateMovieEntry}" th:object="${movie}" >
+
+<h2>Number of Tickets </h2>
+<div>
+<h3>Movie:</h3>
+<input type="text" name="name" required>
+
+
+
+   
+    <br>
+    <h3>Rating : </h3>
+    <select  name="rating" required>
+        <option disabled selected value="day">Select Day</option>
+        <option value="PG">PG</option>
+        <option value="18A">18A</option>
+        <option value="18">18</option>
+        <option value="G">G</option>
+        <option value="R">R</option>
+       
+    </select>
+    <input type="submit" value="Done"> 
+    
+</div>
+</form>
+
+</body>
+</html>

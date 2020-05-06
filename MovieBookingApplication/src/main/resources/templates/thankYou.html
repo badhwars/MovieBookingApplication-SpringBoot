@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html  xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Details</title>
+<style>
+h2{
+text-align : center;
+color : #BCA136;
+}
+body{
+background-color : #093145;
+}
+div{
+ width: 80%;
+ margin: 0 auto;
+  padding: 20px;
+      background: #107896;
+}
+
+h4{
+color:white;
+font-family:verdana;
+font-size:18pt;
+text-align:center;
+}
+label{
+color:white;
+
+}
+
+img{
+float:right;
+margin:10px;
+}
+
+div{
+background-color:black;
+font-color:white;
+
+
+}
+
+#label{
+margin-left:200px;
+display:inline-block;
+font-size:20px;
+text-align:left;
+width:150px;
+}
+</style>
+</head>
+<body>
+<h2>
+Thank you ! Please find Your Booking information below!
+</h2>
+<div>
+<img src="../static/watch.jpg" width="300" height ="150" th:src="@{/watch.jpg}" style="margin-left:'100px';"/>
+<label id="label">Name</label><label th:text=${name}></label><br>
+<label id="label">Movie</label><label th:text=${movie}></label><br>
+<label id="label">Day</label><label th:text=${day}></label><br>
+<label id="label">Time</label><label th:text=${time}></label><br>
+<label id="label" th:if="${seniorTickets} !=0">General Tickets</label><label th:if="${genTickets} !=0" th:text=${genTickets}></label><br>
+<label id="label" th:if="${seniorTickets} !=0">Senior Tickets</label><label th:if="${seniorTickets} !=0" th:text=${seniorTickets}></label><br>
+<label id="label" th:if="${childTickets} !=0">Children Tickets</label><label th:if="${childTickets} !=0" th:text=${childTickets}></label><br>
+<h2>Enjoy your Show!</h2>
+</div>
+<img src="../static/pepsi.jpg" width="600" height ="250" th:src="@{/pepsi.jpg}" style="float:center"/>
+<img src="../static/food.jpg" width="600" height ="250" th:src="@{/food.jpg}" style="float:center"/>
+</body>
+</html>
